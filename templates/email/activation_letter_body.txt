@@ -1,0 +1,5 @@
+Dear user {{ user.username }}!
+You have registered on the site "Stay Sharp".
+You need to activate registration to verify your email.
+To do this, please follow the link
+{{ host }}{% url 'register_activate' sign=sign %} Good day!

@@ -1,0 +1,212 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+{% block title %}Sighup{% endblock %}
+
+{% block static_main %}
+    <link rel="stylesheet" href="{% static 'css/stay_sharp/Login.css' %}" media="screen">
+{% endblock %}
+
+{% block font %}
+    <link id="u-theme-google-font" rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Merriweather:300,300i,400,400i,700,700i,900,900i">
+{% endblock %}
+
+{% block content %}"Login"{% endblock %}
+
+{% block section1 %}
+    <section class="skrollable u-clearfix u-image u-lightbox u-parallax u-shading u-section-2" id="carousel_f9f2"
+             data-image-width="1500" data-image-height="1000">
+        <div class="u-clearfix u-sheet u-valign-middle-sm u-valign-middle-xs u-sheet-1">
+            <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+                <div class="u-layout">
+                    <div class="u-layout-row">
+                        <div class="u-container-style u-layout-cell u-size-20 u-layout-cell-1">
+                            <div class="u-container-layout u-valign-top-lg u-valign-top-md u-container-layout-1">
+                                <h3 class="u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-default-xxl u-text-palette-3-light-2 u-text-1">
+                                    Edit profile</h3>
+                                <div class="u-form u-form-1">
+                                    <form action="" method="POST" id="edit"
+                                          class="u-clearfix u-form-custom-backend u-form-spacing-0 u-form-vertical u-inner-form"
+                                          source="custom" name="sighup" style="padding: 10px;" redirect="true">
+                                        {% csrf_token %}
+                                        <div class="u-form-group u-form-name">
+                                            <label for="name-ad88" class="u-label u-text-palette-3-light-2 u-label-1">Username</label>
+                                            <input type="text" placeholder="" id="name-ad88" name="username"
+                                                   value='{{ form.cleaned_data.username|default:user.username }}'
+                                                   class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white u-input-1"
+                                                   required="">
+                                        </div>
+                                        <div class="u-form-group u-form-group-2">
+                                            <label for="text-99fa" class="u-label u-text-palette-3-light-2 u-label-2">First
+                                                name</label>
+                                            <input type="text" placeholder="first_name" id="text-99fa" name="first_name"
+                                                   value='{{ form.cleaned_data.first_name|default:user.first_name }}'
+                                                   class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white u-input-2">
+                                        </div>
+                                        <div class="u-form-group u-form-group-3">
+                                            <label for="text-c641" class="u-label u-text-palette-3-light-2 u-label-3">Last
+                                                name</label>
+                                            <input type="text" placeholder="last_name" id="text-c641" name="last_name"
+                                                   value='{{ form.cleaned_data.last_name|default:user.last_name }}'
+                                                   class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white u-input-3">
+                                        </div>
+                                        <div class="u-form-email u-form-group">
+                                            <label for="email-ad88"
+                                                   class="u-label u-text-palette-3-light-2 u-label-4">Email</label>
+                                            <input type="email" placeholder="enter_a_valid_email_address"
+                                                   id="email-ad88"
+                                                   name="email" value='{{ form.cleaned_data.email|default:user.email }}'
+                                                   class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white u-input-4"
+                                                   required="">
+                                        </div>
+                                        <div class="u-align-right u-form-group u-form-submit">
+                                            <input type="submit" value="submit"
+                                                   class="u-active-none u-border-2 u-border-active-palette-2-base u-border-hover-palette-4-light-2 u-border-palette-3-light-2 u-btn u-btn-submit u-button-style u-hover-none u-none u-text-active-palette-2-base u-text-hover-palette-4-light-2 u-text-palette-3-light-2 u-btn-1">
+                                        </div>
+                                    </form>
+                                </div>
+                                <a href="{% url 'password_reset' %}"
+                                      class="u-active-none u-border-2 u-border-active-palette-2-base u-border-hover-palette-4-light-2 u-border-palette-3-light-2 u-btn u-button-style u-hover-none u-none u-text-active-palette-2-base u-text-hover-palette-4-light-2 u-text-palette-3-light-2 u-btn-2"
+                                      data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                                      data-animation-direction="">Reset password</a>
+                                <button form="edit" type="submit" formaction="{% url 'account_delete' %}"
+                                        class="u-active-none u-border-2 u-border-active-palette-2-base u-border-hover-palette-4-base u-border-palette-3-light-2 u-btn u-button-style u-hover-none u-none u-text-active-palette-2-base u-text-hover-palette-2-base u-text-palette-3-light-2 u-btn-3"
+                                        data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                                        data-animation-direction="">Delete
+                                </button>
+                            </div>
+                        </div>
+                        <div class="u-container-style u-layout-cell u-size-20 u-layout-cell-2">
+                            <div class="u-container-layout u-container-layout-2">
+                                <h5 class="u-align-center u-text u-text-palette-3-light-2 u-text-2"
+                                    data-animation-name=""
+                                    data-animation-duration="0" data-animation-delay="0"
+                                    data-animation-direction="">
+                                    <span style="font-size: 1.25rem;">Messages</span>
+                                    <span style="font-size: 1.25rem;"></span>
+                                </h5>
+                                <h5 class="u-align-center u-text u-text-palette-3-light-2 u-text-7">
+                                    --------------</h5>
+                                {% if 'email' in form.changed_data %}
+                                    <p class="u-align-center u-text u-text-palette-3-light-2 u-text-4"
+                                       data-animation-name="bounceIn" data-animation-duration="1000"
+                                       data-animation-direction="">
+                                        <span class="u-text-palette-4-light-2"></span>
+                                        <span style="font-size: 1rem;">
+                                            <span class="u-text-palette-4-light-2">We sent a link to</span>
+                                            <br>
+                                            </span>
+                                        <span style="font-size: 1rem;"
+                                              class="u-text-palette-4-light-2">{{ form.cleaned_data.email }}</span>
+                                        <br>
+                                        <span class="u-text-palette-4-light-2">&nbsp;Follow the link to confirm the email</span>
+                                        <br>
+                                    </p>
+                                {% elif form.changed_data %}
+                                    <p class="u-align-center u-text u-text-palette-3-light-2 u-text-4"
+                                       data-animation-name="bounceIn" data-animation-duration="1000"
+                                       data-animation-direction="">
+                                        <span class="u-text-palette-4-light-2"></span>
+                                        <span style="font-size: 1.25rem;">
+                                            <span class="u-text-palette-4-light-2"></span>
+                                            <br>
+                                            </span>
+                                        <span style="font-size: 1rem;"
+                                              class="u-text-palette-4-light-2">You made changes</span>
+                                        <span class="u-text-palette-4-light-2">&nbsp;susessfully!</span>
+                                        <br>
+                                    </p>
+                                {% elif not form.changed_data and form.data %}
+                                    <p class="u-align-center u-text u-text-palette-3-light-2 u-text-4"
+                                       data-animation-name="bounceIn" data-animation-duration="1000"
+                                       data-animation-direction="">
+                                        <span class="u-text-palette-4-light-2"></span>
+                                        <span style="font-size: 1.25rem;">
+                                            <span class="u-text-palette-4-light-2">No change</span>
+                                                </span>
+                                        {% else %}
+                                        {% if form.errors %}
+                                            <ul class="u-align-left u-custom-list u-spacing-0 u-text u-text-palette-2-light-3 u-text-5"
+                                                data-animation-name="bounceIn" data-animation-duration="1000"
+                                                data-animation-direction="">
+                                                {% for key, value in form.errors.items %}
+                                                    {% for error in value %}
+                                                        <li>
+                                                            <div class="u-list-icon">
+                                                                <div>○</div>
+                                                            </div>
+                                                            {{ error }}
+                                                        </li>
+                                                    {% endfor %}
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="u-align-left-lg u-align-left-md u-align-left-sm u-align-left-xl u-align-left-xs u-container-style u-layout-cell u-size-20 u-layout-cell-3">
+                            <div class="u-container-layout u-valign-middle-xl u-container-layout-3">
+                                <div class="u-container-style u-group u-group-1">
+                                    <div class="u-container-layout u-container-layout-4">
+                                        <h5 class="u-align-center u-text u-text-palette-3-light-2 u-text-5">Notices</h5>
+                                        <h5 class="u-align-center u-text u-text-palette-3-light-2 u-text-6">
+                                            --------------</h5>
+                                        <h5 class="u-align-left-lg u-align-left-md u-align-left-sm u-align-left-xl u-align-left-xs u-text u-text-palette-3-light-2 u-text-7">
+                                            Userna​me</h5>
+                                        <ul class="u-align-justify u-text u-text-palette-3-light-2 u-text-8"
+                                            data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                                            data-animation-direction="">
+                                            <li> Required. Letters, digits and @/./+/-/_ only.</li>
+                                        </ul>
+                                        <p class="u-align-justify u-text u-text-13" data-animation-name=""
+                                           data-animation-duration="0" data-animation-delay="0"
+                                           data-animation-direction="">
+                                            &nbsp; &nbsp;</p>
+                                        <h5 class="u-align-left-lg u-align-left-md u-align-left-sm u-align-left-xl u-align-left-xs u-text u-text-palette-3-light-2 u-text-14"
+                                            data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                                            data-animation-direction=""> First name, last name</h5>
+                                        <ul class="u-align-left-lg u-align-left-md u-align-left-sm u-align-left-xl u-align-left-xs u-text u-text-palette-3-light-2 u-text-15"
+                                            data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                                            data-animation-direction="">
+                                            <li> Not required</li>
+                                        </ul>
+                                        <p class="u-align-left-lg u-align-left-md u-align-left-sm u-align-left-xl u-align-left-xs u-text u-text-12"
+                                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                                           data-animation-direction=""> &nbsp; &nbsp;</p>
+                                        <h5 class="u-align-left-lg u-align-left-md u-align-left-sm u-align-left-xl u-align-left-xs u-text u-text-palette-3-light-2 u-text-13"
+                                            data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                                            data-animation-direction=""> Email</h5>
+                                        <ul class="u-align-left-lg u-align-left-md u-align-left-sm u-align-left-xl u-align-left-xs u-text u-text-palette-3-light-2 u-text-14"
+                                            data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                                            data-animation-direction="">
+                                            <li> Required confirmation via link on email</li>
+                                        </ul>
+                                        <p class="u-align-left-lg u-align-left-md u-align-left-sm u-align-left-xl u-align-left-xs u-text u-text-15"
+                                           data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                                           data-animation-direction=""> &nbsp; &nbsp;</p>
+                                        <h5 class="u-align-left-lg u-align-left-md u-align-left-sm u-align-left-xl u-align-left-xs u-text u-text-palette-3-light-2 u-text-16"
+                                            data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                                            data-animation-direction="">
+                                            <span style="font-size: 1.125rem;"> Password</span>
+                                        </h5>
+                                        <ul class="u-align-left-lg u-align-left-md u-align-left-sm u-align-left-xl u-align-left-xs u-text u-text-palette-3-light-2 u-text-17"
+                                            data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                                            data-animation-direction="">
+                                            <li> can’t be too similar to other personal information.</li>
+                                            <li>must contain at least 8 characters.</li>
+                                            <li>can’t be a commonly used password.</li>
+                                            <li>can’t be entirely numeric.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

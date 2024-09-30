@@ -1,0 +1,80 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+{% block title %}Sighup{% endblock %}
+
+{% block static_main %}
+    <link rel="stylesheet" href="{% static 'css/stay_sharp/Login.css' %}" media="screen">
+{% endblock %}
+
+{% block font %}
+    <link id="u-theme-google-font" rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Merriweather:300,300i,400,400i,700,700i,900,900i">
+{% endblock %}
+
+{% block content %}"Login"{% endblock %}
+
+{% block section1 %}
+    <section class="skrollable u-clearfix u-image u-lightbox u-parallax u-shading u-section-1" id="login"
+             data-image-width="1500" data-image-height="1000">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+                <div class="u-layout">
+                    <div class="u-layout-row">
+                        <div class="u-align-left-lg u-align-left-md u-align-left-sm u-align-left-xl u-align-left-xs u-container-style u-layout-cell u-size-20 u-layout-cell-1">
+                            <div class="u-container-layout u-valign-top-lg u-valign-top-md u-valign-top-sm u-valign-top-xl u-valign-top-xs u-container-layout-1">
+
+                            </div>
+                        </div>
+                        <div class="u-container-style u-layout-cell u-size-20 u-layout-cell-2">
+                            <div class="u-container-layout u-valign-middle-xs u-container-layout-2">
+                                <div class="u-container-style u-expanded-width-lg u-expanded-width-md u-expanded-width-xl u-expanded-width-xs u-expanded-width-xxl u-group u-shape-rectangle u-group-1">
+                                    <div class="u-container-layout u-valign-top-xxl u-container-layout-3">
+                                        <h5 class="u-align-center u-text u-text-palette-3-light-2 u-text-2">
+                                            Messenges:</h5>
+                                        <h5 class="u-align-center u-custom-font u-font-merriweather u-text u-text-palette-3-light-2 u-text-3">
+                                            &nbsp;--------------</h5>
+                                        {% if not not_match %}
+                                            <p class="u-align-center u-hover-feature u-text u-text-palette-3-light-2 u-text-4"
+                                               data-animation-name="bounceIn" data-animation-duration="1000"
+                                               data-animation-direction="">
+                                                <span class="u-text-palette-4-light-2"></span>
+                                                <span class="u-text-palette-4-light-2">Congratulation!&nbsp;</span>
+                                                <br>
+                                                <span style="font-weight: 400;" class="u-text-palette-4-light-2">Activation done!</span>
+                                                <br>
+                                                <span style="font-weight: 400;" class="u-text-palette-4-light-2">Login done!</span>
+                                            </p>
+                                            <p class="u-align-center u-text u-text-palette-3-light-2 u-text-5">
+                                                <br>
+                                                <span class="u-text-palette-4-light-2"></span>You can
+                                                work!<br>
+                                            </p>
+                                        {% else %}
+                                            <p class="u-align-center u-hover-feature u-text u-text-palette-2-light-2 u-text-5"
+                                               data-animation-name="bounceIn" data-animation-duration="1000"
+                                               data-animation-direction=""> Activation error!<br>
+                                                <span style="font-weight: 400;">Link not valid. Repeat Sighup</span>
+                                                <br>
+                                            </p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="u-align-left-lg u-align-left-md u-align-left-sm u-align-left-xl u-align-left-xs u-container-style u-layout-cell u-size-20 u-layout-cell-3">
+                            <div class="u-container-layout u-valign-top-sm u-valign-top-xs u-container-layout-4">
+                                <div class="u-container-style u-expanded-width-lg u-expanded-width-md u-expanded-width-xl u-expanded-width-xxl u-group u-group-2">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+{% endblock %}

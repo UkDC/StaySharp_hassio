@@ -1,0 +1,11 @@
+{% autoescape off %}
+I hope it is good morning, now {{ today }}
+
+For this time {{ users_num }} users registered
+
+    {% for user in users %}
+        {{ user.username }} - date_joined {{ user.date_joined }} -- {% if user.is_active %} is_active {% else %} not_is_active {% endif %}
+    {% endfor %}
+
+Have a nice day!
+{% endautoescape %}

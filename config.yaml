@@ -1,0 +1,29 @@
+name: StaySharp
+description: "Калькулятор Tormek T-8"
+version: "1.0.0"
+slug: staysharp_hassio
+arch:
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+startup: services
+boot: auto
+ports:
+  8000/tcp: 8000
+options: {}
+schema: {}
+
+# Home Assistant API доступ
+homeassistant: true
+
+# Точка монтирования
+map:
+  - config:rw
+  - ssl
+  - addons:rw
+  - backup:rw
+  - share:rw
+
+# Установка зависимости при сборке
+init: false

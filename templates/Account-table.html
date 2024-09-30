@@ -1,0 +1,109 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+{% block title %} Account table {% endblock %}
+
+{% block static_main %}
+    <link rel="stylesheet" href="{% static 'css/stay_sharp/Account-table.css' %}" media="screen">
+{% endblock %}
+
+{% block font %}
+    <link id="u-theme-google-font" rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto+Slab:100,200,300,400,500,600,700,800,900|Merriweather:300,300i,400,400i,700,700i,900,900i">
+{% endblock %}
+
+{% block content %}"Account table"{% endblock %}
+
+{% block section1 %}
+
+    <section
+            class="skrollable u-align-center u-clearfix u-hidden-xs u-image u-lightbox u-parallax u-shading u-section-1"
+            id="account_table" data-image-width="1435" data-image-height="1000">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <h4 class="u-text u-text-palette-3-light-2 u-text-1">{{ user.username }} notes</h4>
+            <a href="{% url 'account_table_edit' %}"
+               class="infinite u-active-none u-border-2 u-border-active-palette-4-light-2 u-border-hover-palette-2-base u-border-palette-4-light-1 u-btn u-button-style u-hover-none u-none u-text-active-palette-4-light-2 u-text-hover-palette-2-base u-text-palette-4-light-1 u-btn-1">Edit</a>
+            <div class="u-align-left-md u-align-left-sm u-align-left-xs u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xl u-expanded-width-xs u-table u-table-responsive u-table-1"
+                 data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                 data-animation-direction="">
+                <table class="u-table-entity u-table-entity-1">
+                    <colgroup>
+                        <col width="3.3%">
+                        <col width="8.25%">
+                        <col width="8.25%">
+                        <col width="8.25%">
+                        <col width="8.25%">
+                        <col width="4.95%">
+                        <col width="5.78%">
+                        <col width="5.78%">
+                        <col width="5.78%">
+                        <col width="5.78%">
+                        <col width="5.78%">
+                        <col width="33.17%">
+                    </colgroup>
+                    <thead class="u-align-center u-custom-font u-font-roboto-slab u-palette-3-light-3 u-table-header u-table-valign-middle u-table-header-1">
+                    <tr style="height: 75px;">
+                        <th class="u-border-1 u-border-grey-30 u-custom-font u-font-roboto-slab u-table-cell u-table-cell-1">
+                            №
+                        </th>
+                        <th class="u-border-1 u-border-grey-30 u-custom-font u-font-roboto-slab u-table-cell u-table-cell-2">
+                            Date
+                        </th>
+                        <th class="u-border-1 u-border-grey-30 u-custom-font u-font-roboto-slab u-table-cell u-table-cell-3">
+                            Brand
+                        </th>
+                        <th class="u-border-1 u-border-grey-30 u-custom-font u-font-roboto-slab u-table-cell u-table-cell-4">
+                            Series
+                        </th>
+                        <th class="u-border-1 u-border-grey-30 u-custom-font u-font-roboto-slab u-table-cell u-table-cell-5">
+                            Steel
+                        </th>
+                        <th class="u-border-1 u-border-grey-30 u-custom-font u-font-roboto-slab u-table-cell u-table-cell-6">
+                            C, %
+                        </th>
+                        <th class="u-border-1 u-border-grey-30 u-custom-font u-font-roboto-slab u-table-cell u-table-cell-7">
+                            CrMoV, %
+                        </th>
+                        <th class="u-border-1 u-border-grey-30 u-custom-font u-font-roboto-slab u-table-cell u-table-cell-8">
+                            Length, mm
+                        </th>
+                        <th class="u-border-1 u-border-grey-30 u-custom-font u-font-roboto-slab u-table-cell u-table-cell-9">
+                            Width, mm
+                        </th>
+                        <th class="u-border-1 u-border-grey-30 u-custom-font u-font-roboto-slab u-table-cell u-table-cell-10">
+                            Sharp. angle (double)
+                        </th>
+                        <th class="u-border-1 u-border-grey-30 u-custom-font u-font-roboto-slab u-table-cell u-table-cell-11">
+                            Honing<br>&nbsp;add
+                        </th>
+                        <th class="u-border-1 u-border-grey-30 u-custom-font u-font-roboto-slab u-table-cell u-table-cell-12">
+                            Comments
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody class="u-align-center u-custom-font u-font-roboto-slab u-grey-10 u-table-alt-grey-25 u-table-body u-table-body-1">
+                    {% for my_knife in my_knifes %}
+                        <tr style="height: 31px;">
+                            <td class="u-border-1 u-border-grey-30 u-first-column u-palette-1-light-3 u-table-cell">{{ forloop.counter }}</td>
+                            <td class="u-border-1 u-border-grey-30 u-table-cell">{{ my_knife.date|date:"j.m.y" }}</td>
+                            <td class="u-border-1 u-border-grey-30 u-table-cell u-table-cell-15">{{ my_knife.brand|default_if_none:'' }}</td>
+                            <td class="u-border-1 u-border-grey-30 u-table-cell u-table-cell-16">{{ my_knife.series|default_if_none:'' }}</td>
+                            <td class="u-border-1 u-border-grey-30 u-table-cell u-table-cell-17">{{ my_knife.steel|default_if_none:'' }}</td>
+                            <td class="u-border-1 u-border-grey-30 u-table-cell u-table-cell-18">{{ my_knife.carbon|default_if_none:'' }}</td>
+                            <td class="u-border-1 u-border-grey-30 u-table-cell u-table-cell-19">{{ my_knife.CrMoV|default_if_none:'' }}</td>
+                            <td class="u-border-1 u-border-grey-30 u-table-cell u-table-cell-20">{{ my_knife.length|default_if_none:'' }}</td>
+                            <td class="u-border-1 u-border-grey-30 u-table-cell u-table-cell-21">{{ my_knife.width|default_if_none:'' }}</td>
+                            <td class="u-border-1 u-border-grey-30 u-table-cell u-table-cell-22">{{ my_knife.grinding_angle|default_if_none:'' }}</td>
+                            <td class="u-border-1 u-border-grey-30 u-table-cell u-table-cell-23">{{ my_knife.honing_add|default_if_none:'' }}</td>
+                            <td class="u-border-1 u-border-grey-30 u-table-cell u-table-cell-24">{{ my_knife.comments|default_if_none:'' }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

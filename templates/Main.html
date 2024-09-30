@@ -1,0 +1,54 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+{% block title %} Main {% endblock %}
+
+{% block static_main %}
+    <link rel="stylesheet" href="{% static 'css/stay_sharp/Main.css' %}" media="screen">
+{% endblock %}
+
+{% block font %}
+    <link id="u-theme-google-font" rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Merriweather:300,300i,400,400i,700,700i,900,900i|Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+
+{% endblock %}
+
+{% block content %}"Main"{% endblock %}
+
+{% block section1 %}
+    <section class="skrollable u-clearfix u-image u-parallax u-shading u-section-1" id="main" data-image-width="625"
+             data-image-height="352">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <h1 class="u-align-center u-custom-font u-font-roboto u-text u-text-palette-3-light-2 u-title u-text-1"
+                data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">
+                Stay S​harp</h1>
+            {% if user.username %}
+                <h3 class="u-align-center u-custom-font u-font-merriweather u-text u-text-palette-4-light-2 u-text-2">
+                    Welcomes {{ user.username }}</h3>
+            {% endif %}
+            <h3 class="u-align-center u-custom-font u-font-merriweather u-text u-text-palette-2-light-2 u-text-6">
+                {% if messages %}
+                    {% for message in messages %}
+                        {% if message %}
+                            {{ message }}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </h3>
+            <h3 class=" u-align-center u-text u-text-palette-3-light-2 u-text-3"> This service will help you determine
+                the
+                optimal knife sharpening angle and calculate the installation parameters for the Tormek sharpening
+                system.</h3>
+            <p class="u-align-center-xs u-text u-text-palette-3-light-2 u-text-4"> (equipment - Tormek T8, VFB of
+                SchleifJunkies, KJ-45)</p>
+            <h4 class="u-align-center u-text u-text-palette-3-light-2 u-text-5" data-animation-name=""
+                data-animation-duration="0" data-animation-delay="0" data-animation-direction=""> let's start</h4>
+            <a href="{% url 'choose_the_angle' %}"
+               class="u-btn u-btn-round u-button-style u-hover-palette-4-light-1 u-palette-3-light-1 u-radius-50 u-text-body-color u-btn-1"
+               data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+               data-animation-direction="">Go</a>
+        </div>
+    </section>
+{% endblock %}

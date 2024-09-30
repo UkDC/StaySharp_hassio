@@ -1,0 +1,268 @@
+{% extends 'Base.html' %}
+
+{% load static %}
+
+{% block title %} Choose the angle< {% endblock %}
+
+{% block static_main %}
+    <link rel="stylesheet" href="{% static 'css/stay_sharp/Choose-the-angle.css' %}" media="screen">
+{% endblock %}
+
+{% block font %}
+    <link id="u-theme-google-font" rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Merriweather:300,300i,400,400i,700,700i,900,900i|Lobster:400|Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+{% endblock %}
+{% block content %}"Choose the angle"{% endblock %}
+
+{% block section1 %}
+    <section
+            class="skrollable u-clearfix u-image u-lightbox u-parallax u-shading u-section-1" id="choose-the-angle"
+            data-image-width="1553" data-image-height="1000">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <div class="u-clearfix u-expanded-width u-gutter-0 u-layout-wrap u-layout-wrap-1">
+                <div class="u-layout">
+                    <div class="u-layout-row">
+                        <div class="u-size-40">
+                            <div class="u-layout-row">
+                                <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+                                    <div class="u-container-layout u-container-layout-1">
+                                        <h3 class="u-align-center u-custom-font u-font-playfair-display u-text u-text-palette-3-light-2 u-text-1">
+                                            Suggestion</h3>
+                                        <h3 class="u-align-center u-custom-font u-heading-font u-text u-text-palette-3-light-2 u-text-2"
+                                            data-animation-name="counter" data-animation-event="scroll"
+                                            data-animation-duration="3000">{{ knife.angle|default:angle|floatformat:1 }}<br>
+                                        </h3>
+                                        <h4 class="u-custom-font u-font-playfair-display u-text u-text-palette-4-light-1 u-text-3">
+                                            An<span style="font-weight: 700;"></span>gle&nbsp; (do<span
+                                                style="font-weight: 400;"></span>uble)
+                                        </h4>
+                                        <h4 class="u-text u-text-palette-4-light-1 u-text-4"> Honing
+                                            additional&nbsp;<br>for
+                                            debarring&nbsp;
+                                        </h4>
+                                        <h3 class="u-align-center u-custom-font u-heading-font u-text u-text-palette-3-light-2 u-text-5"
+                                            data-animation-name="counter" data-animation-event="scroll"
+                                            data-animation-duration="3000">
+                                            {{ knife.honing_add|default:honing_add|floatformat:1 }}
+                                        </h3>
+                                        <h5 class="u-align-center u-text u-text-palette-4-light-1 u-text-6">Step 1</h5>
+                                        <div class="u-form u-form-1">
+                                            <form action="" method="POST"
+                                                  class="u-clearfix u-form-custom-backend u-form-spacing-0 u-form-vertical u-inner-form"
+                                                  source="custom" name="step1" style="padding: 0px;">
+                                                {% csrf_token %}
+                                                <input type="hidden" value="step1" id="step1" name="step">
+                                                <div class="u-form-group u-form-select u-label-top u-form-group-1">
+                                                    <label for="select-0ded"
+                                                           class="u-custom-font u-heading-font u-label u-text-palette-3-light-2 u-label-1">Brand</label>
+                                                    <div class="u-form-select-wrapper">
+                                                        <select id="select-0ded" name="brand"
+                                                                class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white u-input-1">
+                                                            <option value="">brand unknown</option>
+                                                            {% for knife_b in model %}
+                                                                {% if knife_b.brand != None %}
+                                                                    <option value="{{ knife_b.brand }}"
+                                                                            {% if knife_b == knife %}
+                                                                            selected {% endif %}>{{ knife_b.brand }}</option>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </select>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12"
+                                                             version="1" class="u-caret">
+                                                            <path fill="currentColor" d="M4 8L0 4h8z"></path>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <div class="u-form-group u-form-select u-label-top u-form-group-2">
+                                                    <label for="select-fc7c"
+                                                           class="u-custom-font u-heading-font u-label u-text-palette-3-light-2 u-label-2">Series</label>
+                                                    <div class="u-form-select-wrapper">
+                                                        <select id="select-fc7c" name="series"
+                                                                class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white u-input-2">
+                                                            <option value="">series unknown</option>
+                                                            {% for knife_ser in model %}
+                                                                {% if knife_ser.series != None %}
+                                                                    <option value="{{ knife_ser.series }}"
+                                                                            {% if knife_ser == knife %}
+                                                                            selected {% endif %}>{{ knife_ser.series }}</option>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </select>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12"
+                                                             version="1" class="u-caret">
+                                                            <path fill="currentColor" d="M4 8L0 4h8z"></path>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <div class="u-form-group u-form-select u-label-top u-form-group-3">
+                                                    <label for="select-5a8a"
+                                                           class="u-custom-font u-heading-font u-label u-text-palette-3-light-2 u-label-3">Steel
+                                                        grade</label>
+                                                    <div class="u-form-select-wrapper">
+                                                        <select id="select-5a8a" name="steel"
+                                                                class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white u-input-3">
+                                                            <option value="">steel unknown</option>
+                                                            {% for knife_st in model %}
+                                                                {% if knife_st.steel != None %}
+                                                                    <option value="{{ knife_st.steel }}"
+                                                                            {% if knife_st == knife %}
+                                                                            selected {% endif %}>{{ knife_st.steel }}</option>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </select>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12"
+                                                             version="1" class="u-caret">
+                                                            <path fill="currentColor" d="M4 8L0 4h8z"></path>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <div class="u-align-center u-form-group u-form-submit u-label-top u-form-group-4">
+                                                    <input type="submit" value="submit"
+                                                           class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-hover-palette-4-light-1 u-border-palette-3-light-2 u-btn u-btn-submit u-button-style u-custom-font u-heading-font u-hover-none u-none u-text-hover-palette-4-light-1 u-text-palette-3-light-2 u-btn-1">
+                                                </div>
+                                            </form>
+                                        </div>
+                                        {% if message_step1 %}
+                                            <h4 class="u-align-center u-custom-font u-font-lobster u-text u-text-palette-4-light-3 u-text-7"
+                                                data-animation-name="bounceIn" data-animation-duration="1000"
+                                                data-animation-delay="0"
+                                                data-animation-direction="">{{ message_step1 }}</h4>
+                                        {% endif %}
+
+                                    </div>
+                                </div>
+                                <div class="u-container-style u-layout-cell u-shape-rectangle u-size-30 u-layout-cell-2">
+                                    <div class="u-container-layout u-container-layout-2">
+                                        <h5 class="u-align-center u-text u-text-palette-4-light-1 u-text-8">Step 2<br>
+                                        </h5>
+                                        <div class="u-form u-form-2">
+                                            <form action="" method="POST"
+                                                  class="u-clearfix u-form-custom-backend u-form-spacing-0 u-form-vertical u-inner-form"
+                                                  source="custom" name="step2" style="padding: 0px;">
+                                                {% csrf_token %}
+                                                <input type="hidden" value="step2" id="step2" name="step">
+                                                <div class="u-form-group u-label-top u-form-group-5">
+
+                                                    <label for="text-331b"
+                                                           class="u-custom-font u-heading-font u-label u-text-palette-3-light-2 u-label-4">Carbon
+                                                        %</label>
+                                                    <input type="number" step="0.01" min="0" max="6" id="text-331b"
+                                                           name="carbon"
+                                                           class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white u-input-4"
+                                                           placeholder="carbon_%" required="required" maxlength="3"
+                                                           value='{{ carbon }}'>
+                                                </div>
+                                                <div class="u-form-group u-label-top u-form-group-6">
+                                                    <label for="text-8ff4"
+                                                           class="u-custom-font u-heading-font u-label u-text-palette-3-light-2 u-label-5">Total
+                                                        of additives (CrMoV) %</label>
+                                                    <input type="number" step="0.1" min="0" max="50"
+                                                           placeholder="total_CrMoV_%" id="text-8ff4"
+                                                           name="CrMoV"
+                                                           class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white u-input-5"
+                                                           value='{{ add }}'>
+                                                </div>
+                                                <div class="u-align-center u-form-group u-form-submit u-label-top u-form-group-7">
+                                                    <input type="submit" value="submit"
+                                                           class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-hover-palette-4-light-1 u-border-palette-3-light-2 u-btn u-btn-submit u-button-style u-custom-font u-heading-font u-hover-none u-none u-text-hover-palette-4-light-1 u-text-palette-3-light-2 u-btn-2">
+                                                </div>
+                                            </form>
+                                        </div>
+                                        {% if message_step2 %}
+                                            <h4 class="u-align-center u-custom-font u-font-lobster u-text u-text-palette-4-light-3 u-text-9"
+                                                data-animation-name="bounceIn" data-animation-duration="1000"
+                                                data-animation-delay="0"
+                                                data-animation-direction="">{{ message_step2 }}</h4>
+                                        {% else %}
+                                            <br>
+                                            <br>
+                                        {% endif %}
+
+                                        <h5 class="u-align-center u-text u-text-palette-4-light-1 u-text-10">Step 3</h5>
+                                        <div class="u-form u-form-3">
+                                            <form action="" method="POST"
+                                                  class="u-clearfix u-form-custom-backend u-form-spacing-0 u-form-vertical u-inner-form"
+                                                  source="custom" name="step3" style="padding: 0px;">
+                                                {% csrf_token %}
+                                                <input type="hidden" value="step3" id="step3" name="step">
+                                                <div class="u-form-group u-label-top u-form-group-8">
+                                                    <label for="select-0ded"
+                                                           class="u-custom-font u-heading-font u-label u-text-palette-3-light-2 u-label-6">category</label>
+                                                    <div class="u-form-select-wrapper">
+                                                        <select id="select-0ded" name="category"
+                                                                class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white u-input-6"
+                                                                autocomplete="on">
+                                                            <option value="low_quality" {% if low_quality %}
+                                                                    selected {% endif %}>low_quality
+                                                            </option>
+                                                            <option value="medium_quality" {% if medium_quality %}
+                                                                    selected {% endif %}>medium_quality
+                                                            </option>
+                                                            <option value="high_quality" {% if high_quality %}
+                                                                    selected {% endif %}>high_quality
+                                                            </option>
+                                                            <option value="premium_quality" {% if premium_quality %}
+                                                                    selected {% endif %}>premium_quality
+                                                            </option>
+                                                        </select>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12"
+                                                             version="1" class="u-caret">
+                                                            <path fill="currentColor" d="M4 8L0 4h8z"></path>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <div class="u-align-center u-form-group u-form-submit u-label-top u-form-group-9">
+                                                    <input type="submit" value="submit"
+                                                           class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-hover-palette-4-light-1 u-border-palette-3-light-2 u-btn u-btn-submit u-button-style u-custom-font u-heading-font u-hover-none u-none u-text-hover-palette-4-light-1 u-text-palette-3-light-2 u-btn-3">
+                                                </div>
+                                            </form>
+                                        </div>
+                                        {% if message_step3 %}
+                                            <h4 class="u-align-center u-custom-font u-font-lobster u-text u-text-palette-4-light-3 u-text-11"
+                                                data-animation-name="bounceIn" data-animation-duration="1000"
+                                                data-animation-delay="0"
+                                                data-animation-direction="">{{ message_step3 }}</h4>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="u-size-20">
+                            <div class="u-layout-col">
+                                <div class="u-container-style u-layout-cell u-shape-rectangle u-size-60 u-layout-cell-3">
+                                    <div class="u-container-layout u-container-layout-3">
+                                        <div class="u-container-style u-group u-group-1" data-animation-name=""
+                                             data-animation-duration="0" data-animation-direction="">
+                                            <div class="u-container-layout u-container-layout-4">
+                                                <h4 class="u-align-center u-text u-text-palette-3-light-2 u-text-12">
+                                                    Comments</h4>
+                                                <h5 class="u-align-justify u-custom-font u-font-raleway u-text u-text-palette-3-light-2 u-text-13">
+                                                    &nbsp; We use data about knives with different brands and steel
+                                                    blades.
+                                                    Our base with over forty knives allows proposing appropriate angles
+                                                    for
+                                                    grinding. </h5>
+                                                <h5 class="u-align-left u-custom-font u-font-raleway u-text u-text-palette-3-light-2 u-text-14">
+                                                    &nbsp; &nbsp; &nbsp; ​We can use any of 3 steps:<br>
+                                                    <br>Step 1 - brand or brand and series or steel<br>
+                                                    <br>Step2 - carbon of steel or carbon and&nbsp;additives (CrMoV)
+                                                    <br>
+                                                    <br>Step3 - category from low quality to premium_quality
+                                                </h5>
+                                                <h5 class="u-align-justify u-custom-font u-font-raleway u-text u-text-palette-3-light-2 u-text-15">
+                                                    &nbsp; &nbsp;In the end, we will suggest an angle for grinding and
+                                                    honing.</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
