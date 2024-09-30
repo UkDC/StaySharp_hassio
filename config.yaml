@@ -27,3 +27,6 @@ map:
 
 # Установка зависимости при сборке
 init: false
+
+
+webui: "http://[HOST]:[PORT:8000]"
